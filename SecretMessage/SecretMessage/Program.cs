@@ -14,25 +14,25 @@ namespace SecretMessage
             string password = "123";
             int numberOfAttemptsAvailable = 3;
 
-            while (numberOfAttemptsAvailable >0)
+            for (int i = 0; i < numberOfAttemptsAvailable; i++)
             {
+
                 Console.Write("Чтобы увидеть сообщение, введите пароль:");
                 string currentInputPassword = Console.ReadLine();
 
                 if (currentInputPassword != password)
                 {
-                    numberOfAttemptsAvailable--;
-                    Console.WriteLine("Неверный пароль. Осталось попыток:" + numberOfAttemptsAvailable);
+                    Console.WriteLine("Неверный пароль. Использовано попыток:" + (i+1));
                 }
                 else
                 {
                     Console.WriteLine(secretMessage);
-                    continue;
-                }
+                    Console.ReadKey();
 
+                    return;
+                }
             }
 
-            Console.ReadKey();
         }
     }
 }
